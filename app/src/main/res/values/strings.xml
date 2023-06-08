@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Hehe</string>
+    <string name="time">Báo thức sẽ reo lúc: %02d:%02d</string>
+    <string name="alarm_content">Dậy đi bro %02d:%02d rồi!</string>
 </resources>
