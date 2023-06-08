@@ -1,0 +1,13 @@
+<resources>
+    <style name="BASE_THEME" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textViewStyle">@style/BASE_TEXT_VIEW</item>
+    </style>
+
+    <style name="BASE_TEXT_VIEW" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
