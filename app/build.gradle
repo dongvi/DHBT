@@ -28,12 +28,75 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            storeFile file("src/keystore/keystore-debug.jks")
+            storePassword "12345678"
+            keyAlias "neko"
+            keyPassword "12345678"
+        }
+
+        nono {
+            storeFile file("src/keystore/keystore-nono.jks")
+            storePassword "12345678"
+            keyAlias "neko"
+            keyPassword "12345678"
+        }
+
         release {
+            storeFile file("src/keystore/keystore-release.jks")
+            storePassword "12345678"
+            keyAlias "neko"
+            keyPassword "12345678"
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+
+        nono {
+            applicationIdSuffix '.nono'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.nono
+        }
+
+        release {
+            applicationIdSuffix '.release'
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
+    }
+
+    flavorDimensions 'neko'
+    productFlavors {
+        dev {
+            applicationIdSuffix '.dev'
+            dimension 'neko'
+        }
+
+        stagging {
+            applicationIdSuffix '.stag'
+            dimension 'neko'
+        }
+
+        product {
+            applicationIdSuffix '.pro'
+            dimension 'neko'
+        }
+    }
+
+    sourceSets {
+        dev.resources.srcDirs = ['src/dev/res']
+        stagging.resources.srcDirs = ['src/stagging/res']
+        product.resources.srcDirs = ['src/product/res']
     }
 
     buildFeatures {

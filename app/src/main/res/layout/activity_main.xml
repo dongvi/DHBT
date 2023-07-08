@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".app.MainActivity">
 
     <TimePicker
         android:id="@+id/time_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:timePickerMode="spinner" />
+        android:timePickerMode="spinner"
+        android:layout_centerHorizontal="true" />
+
+    <com.vnd.dhbt.base.customviews.DaysOfWeekView
+        android:id="@+id/days_of_week"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_picker"/>
 
     <Button
-        android:id="@+id/set_time_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/set_alarm_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/time_picker"
-        android:layout_alignParentEnd="true"
-        android:layout_marginHorizontal="20dp"
-        android:layout_toEndOf="@id/time_picker"
+        android:layout_below="@id/days_of_week"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_button"
         android:text="Set"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alarm_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/time_picker"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/set_alarm_button"
         android:clipToPadding="true"
-        tools:listitem="@layout/item_alarm"
+        android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"/>
+        tools:listitem="@layout/item_alarm" />
+
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/set_alarm_button"/>
 
 </RelativeLayout>

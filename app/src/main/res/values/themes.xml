@@ -10,4 +10,8 @@
     <style name="BASE_TEXT_VIEW" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="circle">
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>
